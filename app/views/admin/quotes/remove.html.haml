@@ -1,0 +1,27 @@
+%h1 Remove Quote
+
+%p 
+  Are you sure you want to 
+  %strong.warning permanently remove
+  the following quote?
+
+%table.index#quotes{:cellpadding=>0, :cellspacing=>0, :border=>0}
+  %tbody
+    %tr.node.level-1
+      %td.quote-open{:valign => :top}
+        = image('quote-open', :alt => "quote-open-icon")
+      %td.quote
+        %span.content
+          = @quote.quote
+          %p{:align => :right}
+            = "~ #{@quote.author}" 
+            - unless @quote.work.blank?
+              = "in #{@quote.work}"
+        %td.quote-close{:valign => :top}
+          = image('quote-close', :alt => "quote-close-icon")
+
+- form_for [:admin, @quote], :html => {:method => :delete} do
+  %p.buttons
+    %input.button{:type=>"submit", :value=>"Delete Quote"}/
+    or
+    = link_to 'Cancel', admin_quotes_url

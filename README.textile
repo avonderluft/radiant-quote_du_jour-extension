@@ -1,0 +1,32 @@
+h2. _Quote du Jour_
+
+Extension for Radiant CMS which enables you to display random quotes on a page
+
+* Created by:  Victor Luft, Andrew vonderLuft
+* Contact: avonderluft [at] avlux [dot] net
+
+h3. Revision History
+
+* 1.0 - 7/2009 - Radiant 0.7 compatible, should also work with 0.8
+
+h3. Requirements
+
+* Radiant 0.7 or greater
+* no other known dependencies
+
+h3. Installation
+
+From your RADIANT_ROOT:
+
+* <pre>$ script/extension install quote_du_jour</pre>
+* Restart your radiant app, and you should be good to go.
+
+h3. To Do
+
+* Send your Suggestions
+
+h3. Notes
+
+h3. Acknowledgments
+
+Victor originally wrote this as a private extension for http://avanim.org.  Andrew decided to extract it, enhance it, and make it available to the community.

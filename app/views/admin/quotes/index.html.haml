@@ -1,0 +1,55 @@
+%h1 Quotes
+
+- @quotes = Quote.find(:all, :order => 'author asc') 
+
+%p Listed in order by author
+
+= render :partial => 'new_button'
+
+%table#quotes.index{:cellspacing=>"0", :border=>"0", :cellpadding=>"0"}
+  %thead
+    %tr
+      %th.author Author
+      %th.quote Quote
+      %th.updated Last Updated
+      %th.modify Modify
+
+  %tbody
+    - @quotes.each do |quote|
+      %tr.node.level-1
+        %td.author{:nowrap => true, :valign => :middle}
+          %span.author_row
+            = link_to quote.author, edit_admin_quote_url(quote), :title => "Edit this quote by #{quote.author}"
+            %br
+            %span.citation
+              - unless quote.work.blank?
+                = "in #{quote.work}"
+              = "&nbsp;"
+        %td.quote
+          %span= link_to image('quote-open', :height => 16 ) + quote.quote + image('quote-close', :height => 16 ), edit_admin_quote_url(quote), :title => "Edit this quote by #{quote.author}"
+        %td.updated= quote.updated_at.strftime(fmt="%m/%d/%Y")
+        %td.remove
+          = link_to image('remove', :alt => 'Remove Quote'), remove_admin_quote_url(quote)
+
+= render :partial => 'new_button'
+
+- content_for :page_css do
+  :sass
+    a, a:visited
+      color: black
+      text-decoration: none
+    a:hover
+      color: blue
+      text-decoration: underline  
+    a.new-link
+      font-size: 12px
+      padding: 16px 0px 18px 48px
+      background: url(/images/admin/quote-open.png) 0 0 no-repeat
+    .author_row
+      font-size: 12px
+      text-align: top
+      padding: 0px 0px 24px 48px
+      background: url(/images/admin/author.png) 0 0 no-repeat
+    .citation
+      font-size: 10px
+      padding: 0px 0px 2px 32px

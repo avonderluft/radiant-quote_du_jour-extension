@@ -1,0 +1,20 @@
+- form_for [:admin, @quote] do |f|
+  .form-area
+    %p.title
+      %label{:for=>"quote_author"} Author
+      = f.text_field :author, :class => :textbox
+    %p.title
+      %label{:for=>"quote_author"} Work
+      (what will appear in the citation: e.g. book, chapter, section, pages, etc. 
+      according to preference)
+      = f.text_field :work, :class => :textbox
+    %p.content
+      %label{:for=>"quote_quote"} Quote
+      (just the text, no quotation marks) 
+      ~ f.text_area :quote, :class => :textarea, :style => "width: 100%; height: 200px"
+      
+%p.buttons
+  = save_model_button(@quote)
+  = save_model_and_continue_editing_button(@quote)
+  or
+  = link_to 'Cancel', admin_quotes_url
