@@ -40,18 +40,13 @@ describe Admin::QuotesController do
         response.should be_success
       end
       
-      it 'should have access to the show action' do
-        get :show, :id => 1
-        response.should be_success
-      end
-      
       it 'should have access to the new action' do
         get :new
         response.should be_success
       end
       
       it 'should have access to the create action' do
-        post :create, :quote =>
+        post :create, :quote => min_valid_quote_params
         redirects_to_index
       end
       
