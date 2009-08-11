@@ -13,8 +13,8 @@
       (just the text, no quotation marks) 
       ~ f.text_area :quote, :class => :textarea, :style => "width: 100%; height: 200px"
       
-%p.buttons
-  = save_model_button(@quote)
-  = save_model_and_continue_editing_button(@quote)
-  or
-  = link_to 'Cancel', admin_quotes_url
+  %p.buttons
+    = save_model_button(@quote)
+    = save_model_and_continue_editing_button(@quote)
+    or
+    = link_to 'Cancel', admin_quotes_url
