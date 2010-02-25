@@ -9,6 +9,7 @@
 %table#quotes.index{:cellspacing=>"0", :border=>"0", :cellpadding=>"0"}
   %thead
     %tr
+      %th.id ID
       %th.author Author
       %th.quote Quote
       %th.updated Last Updated
@@ -17,6 +18,7 @@
   %tbody
     - @quotes.each do |quote|
       %tr.node.level-1
+        %td.quote_id= quote.id
         %td.author{:nowrap => true, :valign => :middle}
           %span.author_row
             = link_to quote.author, edit_admin_quote_url(quote), :title => "Edit this quote by #{quote.author}"
